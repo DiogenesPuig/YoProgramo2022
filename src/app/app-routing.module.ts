@@ -15,9 +15,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   {path:'home',component:HomePageComponent},
-  {path:'/login',component:LoginComponent},
-  {path:'/register',component:RegisterComponent},
-  {path:'/profile',component:ProfileComponent},//Solo se ingresa si esta autentificado
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+  {path:'profile',component:ProfileComponent},//Solo se ingresa si esta autentificado
   {path:'**',component:Page404Component}
 ];
 
