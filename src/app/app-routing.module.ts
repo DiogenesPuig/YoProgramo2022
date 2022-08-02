@@ -8,6 +8,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component'
 import { Page404Component } from './components/page404/page404.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NewSkillComponent } from './components/skills/new-skill.component';
+import { EditSkillComponent } from './components/skills/edit-skill.component';
+import { NewStudiesComponent } from './components/studies/new-studies.component';
+import { EditStudiesComponent } from './components/studies/edit-studies.component';
+import { NewExperienceComponent } from './components/experience/new-experience.component';
+import { EditExperienceComponent } from './components/experience/edit-experience.component';
+import { EditProfileComponent } from './components/profile/edit-profile.component';
 
 // Services
 
@@ -17,7 +24,13 @@ const routes: Routes = [
   {path:'home',component:HomePageComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  {path:'profile',component:ProfileComponent},//Solo se ingresa si esta autentificado
+  {path:'nskill/:id',component:NewSkillComponent},
+  {path:'eskill/:id',component:EditSkillComponent},
+  {path:'nstudy/:id',component:NewStudiesComponent},
+  {path:'estudy/:id',component:EditStudiesComponent},
+  {path:'nexperience/:id',component:NewExperienceComponent},
+  {path:'eexperience/:id',component:EditExperienceComponent},
+  {path:'eprofile/:id',component:EditProfileComponent},
   {path:'**',component:Page404Component}
 ];
 
