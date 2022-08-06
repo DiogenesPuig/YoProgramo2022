@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Skill } from 'src/app/model/skill';
 import { SkillsService } from 'src/app/service/skills.service';
 
@@ -11,7 +12,9 @@ export class SkillsComponent implements OnInit {
 
   skills: Skill[] = []
   
-  constructor(private skillsService: SkillsService) { }
+  constructor(
+    private skillsService: SkillsService,
+    private toastr: ToastrService,) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +28,15 @@ export class SkillsComponent implements OnInit {
   }
 
   deleteSkill(id: any){
-    alert('borrar el ' + id)
+    this.skillsService.delete(id).subscribe(
+      data => {
+        this.toastr.success('Experiencia eliminada con exito',"OK", {timeOut: 3000,positionClass:'toast-top-center'});
+        this.loadSkils();
+      },
+      err => {
+        this.toastr.error("error al crear la experiencia","Fail", {timeOut: 3000, positionClass:'toast-top-center'});
+      }
+    );
   }
 
 }
