@@ -23,8 +23,8 @@ export class NewSkillComponent implements OnInit {
   }
 
   onCreate():void{
-    const experience = new Skill(this.nombre)
-    this.skillService.save(experience).subscribe(
+    const skill = new Skill(this.nombre)
+    this.skillService.save(skill).subscribe(
       data => {
         this.toastr.success('experiencia Creada con exito',"OK", {timeOut: 3000,positionClass:'toast-top-center'});
         this.router.navigate(['/'])
