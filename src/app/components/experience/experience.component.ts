@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Experience } from 'src/app/model/experience';
 import { ExperienceService } from 'src/app/service/experience.service';
 
@@ -11,7 +12,9 @@ export class ExperienceComponent implements OnInit {
 
   experiences: Experience[] = []
 
-  constructor(private experienceService: ExperienceService ) { }
+  constructor(
+    private experienceService: ExperienceService,
+    private toastr: ToastrService, ) { }
 
   ngOnInit(): void {
     this.loadExperiences();
@@ -29,7 +32,15 @@ export class ExperienceComponent implements OnInit {
   }
 
   deleteExperience(id: any){
-    alert('borrar el ' + id)
+    this.experienceService.delete(id).subscribe(
+      data => {
+        this.toastr.success('Experiencia eliminada con exito',"OK", {timeOut: 3000,positionClass:'toast-top-center'});
+        this.loadExperiences();
+      },
+      err => {
+        this.toastr.error("error al crear la experiencia","Fail", {timeOut: 3000, positionClass:'toast-top-center'});
+      }
+    );
   }
   
 }

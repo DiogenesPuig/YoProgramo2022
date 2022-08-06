@@ -8,7 +8,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { Page404Component } from './components/page404/page404.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ProjectsComponent } from './components/projects/projects.component'; //should delete later
 
 //login&register
 import { LoginComponent } from './components/login/login.component';
@@ -54,7 +53,6 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     StudiesComponent,
     SkillsComponent,
-    ProjectsComponent,
     ExperienceComponent,
     NewExperienceComponent,
     EditExperienceComponent,
