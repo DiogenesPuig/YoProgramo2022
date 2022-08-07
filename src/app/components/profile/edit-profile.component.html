@@ -1,1 +1,31 @@
-<p>edit-profile works!</p>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre </label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" 
+                    [(ngModel)]="profile.nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Nacimiento </label>
+                    <input type="date" class="form-control" id="nacimiento" name="nacimiento" 
+                    [ngModel]="profile.nacimiento | date:'yyyy-MM-dd'" required (ngModelChange)="profile.nacimiento = $event">
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Mail</label>
+                    <input type="text" class="form-control" id="mail" name="mail" 
+                    [(ngModel)]="profile.mail" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono" 
+                    [(ngModel)]="profile.telefono" required>
+                </div>
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>

@@ -19,4 +19,12 @@ export class ProfileService {
   public get(id: number): Observable<Profile>{
     return this.httpClient.get<Profile>(this.URL+ `get/${id}`);
   }
+
+  public detail(id:number): Observable<Profile>{
+    return this.httpClient.get<Profile>(this.URL + `get/${id}`)
+  }
+
+  public update(id: number,skill: Profile): Observable<any> {
+    return this.httpClient.put<any>(this.URL + `edit/${id}`, skill);
+  }
 }

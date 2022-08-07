@@ -43,7 +43,7 @@ export class EditSkillComponent implements OnInit {
       },
       err => {
         this.toastr.error("error al actualizar la habilidad", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
-        //this.router.navigate(['/'])
+        this.router.navigate(['/'])
       });
   }
 
