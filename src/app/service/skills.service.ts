@@ -15,6 +15,10 @@ export class SkillsService {
   public list(): Observable<Skill[]>{
     return this.httpClient.get<Skill[]>(this.URL + 'get');
   }
+
+  public detail(id:number): Observable<Skill>{
+    return this.httpClient.get<Skill>(this.URL + `get/${id}`)
+  } 
   
   public save(skill: Skill): Observable<any> {
     return this.httpClient.post<any>(this.URL + 'create', skill);
