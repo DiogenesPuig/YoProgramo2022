@@ -1,14 +1,20 @@
 <hr>
 <h2>Proyectos y Trabajos</h2>
-<div class="row">
-    <div *ngFor="let experience of experiences" class="col-sm-6">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">{{experience.nombre}}</h5>
-                <p class="card-text">{{experience.descripcion}}</p>
-                <a href="#" class="btn btn-primary" routerLink="/eexperience/{{experience.id}}">Editar</a>
-                <a class="btn btn-danger" (click)="deleteExperience(experience.id)">Eliminar</a>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let experience of experiences" class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{experience.nombre}}</h5>
+                    <p class="card-text">{{experience.descripcion}}</p>
+                    <a class="btn btn-primary" routerLink="/eexperience/{{experience.id}}">Editar</a>
+                    <a class="btn btn-danger" (click)="deleteExperience(experience.id)">Eliminar</a>
+                </div>
             </div>
+        </div>
+        <br>
+        <div class="col-ms-3">
+            <a class="btn btn-success" routerLink="/nexperience">Nueva Experiencia</a>
         </div>
     </div>
 </div>

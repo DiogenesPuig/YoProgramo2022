@@ -15,6 +15,10 @@ export class ExperienceService {
   public list(): Observable<Experience[]>{
     return this.httpClient.get<Experience[]>(this.URL + 'get');
   }
+
+  public detail(id:number): Observable<Experience>{
+    return this.httpClient.get<Experience>(this.URL + `get/${id}`)
+  } 
   
   public save(experience: Experience): Observable<any> {
     return this.httpClient.post<any>(this.URL + 'create', experience);

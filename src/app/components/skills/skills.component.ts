@@ -17,12 +17,15 @@ export class SkillsComponent implements OnInit {
     private toastr: ToastrService,) { }
 
   ngOnInit(): void {
+    this.loadSkils();
   }
 
   loadSkils():void{
     this.skillsService.list().subscribe(
       data=> {
         this.skills = data;
+      },err => {
+        console.log(err)
       }
     )
   }

@@ -14,11 +14,11 @@ export class ProfileComponent implements OnInit {
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
-    this.loadProfile();
+    this.loadProfile();;
   }
 
   loadProfile():void{
-    this.profileService.getProfile().subscribe(
+    this.profileService.getProfiles().subscribe(
       data => {
         this.profile = data;
       }

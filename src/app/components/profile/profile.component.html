@@ -1,25 +1,27 @@
-
-<div class="row d-flex no-gutters">
-    <div class="col-md-6 col-lg-5 d-flex">
-        <div class="img-about img d-flex align-items-stretch">
-            <div class="img d-flex align-self-stretch align-items-center">
-                <img src="/assets/images/perfil.jpg" alt="foto de perfil">
+<div class="container-fluid">
+    <div class="row d-flex no-gutters">
+        <div class="col-md-6 col-lg-4 d-flex">
+            <div class="img-about img d-flex align-items-stretch">
+                <div class="img d-flex align-self-stretch align-items-center">
+                    <img src="/assets/images/perfil.jpg" alt="foto de perfil">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 col-lg-7">
-        <div class="py-md-5">
-            <div class="row justify-content-start">
-                <div *ngFor="let data of profile" class="col-md-12 heading-section">
-                    <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">Quien soy?</h2>
-                    <p>{{data.descripcion}}</p>
-                    <ul class="about-info mt-4 px-md-0 px-2">
-                        <li class="d-flex"><span>Nombre: </span>{{data.nombre}} <span></span></li>
-                        <li class="d-flex"><span>Fecha de Nacimiento: </span> {{data.nacimiento | date : 'shortDate'}}<span></span></li>
-                        <li class="d-flex"><span>Email: </span>{{data.mail }}<span></span></li>
-                        <li class="d-flex"><span>Telefono: </span> {{data.telefono}}<span></span></li>
-                    </ul>
-                    <a href="#" class="btn btn-primary" routerLink="/eprofile/{{data.id}}" >Editar</a>
+        <div class="col-md-5 col-lg-6">
+            <div class="py-md-5">
+                <div class="row justify-content-start">
+                    <div *ngFor="let data of profile" class="col-md-12 heading-section">
+                        <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">Quien soy?</h2>
+                        <p>{{data.descripcion}}</p>
+                        <ul class="about-info mt-4 px-md-0 px-2">
+                            <li class="d-flex"><span>Nombre: </span>{{data.nombre}} <span></span></li>
+                            <li class="d-flex"><span>Fecha de Nacimiento: </span> {{data.nacimiento | date :
+                                'shortDate'}}<span></span></li>
+                            <li class="d-flex"><span>Email: </span>{{data.mail }}<span></span></li>
+                            <li class="d-flex"><span>Telefono: </span> {{data.telefono}}<span></span></li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" routerLink="/eprofile/{{data.id}}">Editar</a>
+                    </div>
                 </div>
             </div>
         </div>

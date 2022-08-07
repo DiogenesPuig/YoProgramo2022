@@ -20,18 +20,18 @@ import { EditProfileComponent } from './components/profile/edit-profile.componen
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:'home',component:HomePageComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'nskill/:id',component:NewSkillComponent},
-  {path:'eskill/:id',component:EditSkillComponent},
-  {path:'nstudy/:id',component:NewStudiesComponent},
-  {path:'estudy/:id',component:EditStudiesComponent},
-  {path:'nexperience/:id',component:NewExperienceComponent},
-  {path:'eexperience/:id',component:EditExperienceComponent},
-  {path:'eprofile/:id',component:EditProfileComponent},
-  {path:'**',component:Page404Component}
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomePageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'nskill', component: NewSkillComponent },
+  { path: 'eskill/:id', component: EditSkillComponent },
+  { path: 'nstudy', component: NewStudiesComponent },
+  { path: 'estudy/:id', component: EditStudiesComponent },
+  { path: 'nexperience', component: NewExperienceComponent },
+  { path: 'eexperience/:id', component: EditExperienceComponent },
+  { path: 'eprofile/:id', component: EditProfileComponent },
+  { path: '**', component: Page404Component }
 ];
 
 @NgModule({

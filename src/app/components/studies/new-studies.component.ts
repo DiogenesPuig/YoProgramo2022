@@ -35,7 +35,7 @@ export class NewStudiesComponent implements OnInit {
         this.toastr.error("error al crear la experiencia", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         this.router.navigate(['/'])
       }
-    )
+    );}
 
 
   }

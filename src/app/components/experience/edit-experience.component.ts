@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Experience } from 'src/app/model/experience';
+import { ExperienceService } from 'src/app/service/experience.service';
 
 @Component({
   selector: 'app-edit-experience',
@@ -7,9 +11,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditExperienceComponent implements OnInit {
 
-  constructor() { }
+  experience: Experience = null;
 
-  ngOnInit(): void {
+  constructor(
+    private experienceService: ExperienceService,
+    private activatedRoute: ActivatedRoute,
+    private toastr: ToastrService,
+    private router: Router,
+  ) { }
+
+  ngOnInit():void  {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.experienceService.detail(id).subscribe(
+      data => {
+        this.experience = data;
+      },
+      err => {
+        this.toastr.error("error", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.router.navigate(['/'])
+      }
+    )
+
+  }
+
+  onUpdate(): void {
+    const id = this.activatedRoute.snapshot.params['id'];
+    console.log(this.experience)
+    this.experienceService.update(id,this.experience).subscribe(
+      data => {
+        this.toastr.success('experiencia actualizada', "OK", { timeOut: 3000, positionClass: 'toast-top-center' });
+        this.router.navigate(['/'])
+      },
+      err => {
+        this.toastr.error("error al actualizar la experiencia", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        //this.router.navigate(['/'])
+      });
   }
 
 }

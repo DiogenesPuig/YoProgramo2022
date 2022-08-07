@@ -11,9 +11,9 @@ import { ExperienceService } from 'src/app/service/experience.service';
   styleUrls: ['./new-experience.component.css']
 })
 export class NewExperienceComponent implements OnInit {
+
   nombre = "";
   descripcion = ""
-
 
   constructor(
     private experienceService: ExperienceService,
@@ -24,6 +24,7 @@ export class NewExperienceComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // rehace rel backend con dto en todos los servicios
   onCreate(): void {
     const experience = new Experience(this.nombre, this.descripcion)
     this.experienceService.save(experience).subscribe(
@@ -32,7 +33,7 @@ export class NewExperienceComponent implements OnInit {
         this.router.navigate(['/'])
       },
       err => {
-        this.toastr.error("error al crear la experiencia", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.text, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         this.router.navigate(['/'])
       }
     )

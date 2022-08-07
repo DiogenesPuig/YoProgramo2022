@@ -1,2 +1,24 @@
 <hr>
 <h2>Cursos y Estudios</h2>
+
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let study of studies" class="col-sm-5">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{study.nombre}}</h5>
+                    <a class="btn btn-primary" routerLink="/eskill/{{study.id}}">Editar</a>
+                    <a class="btn btn-danger" (click)="deleteStudy(study.id)">Eliminar</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        </div>
+    <div class="row">
+        <div>
+        <a class="btn btn-success" routerLink="/nstudies">Nuevos Conocimientos</a>
+        </div>
+    </div>
+</div>
+
+
