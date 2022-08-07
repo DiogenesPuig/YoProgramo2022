@@ -7,18 +7,21 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{study.nombre}}</h5>
-                    <a class="btn btn-primary" routerLink="/eskill/{{study.id}}">Editar</a>
+                    <ul>
+                        <li>{{study.descripcion}}</li>
+                        <li>iniciado: {{study.inicio | date :'shortDate'}}</li>
+                        <li>finalizado: {{study.fin | date :'shortDate'}}</li>
+                    </ul>
+                    <a class="btn btn-primary" routerLink="/estudy/{{study.id}}">Editar</a>
                     <a class="btn btn-danger" (click)="deleteStudy(study.id)">Eliminar</a>
                 </div>
             </div>
         </div>
         <br>
-        </div>
+    </div>
     <div class="row">
         <div>
-        <a class="btn btn-success" routerLink="/nstudy">Nuevos Conocimientos</a>
+            <a class="btn btn-success" routerLink="/nstudy">Nuevos Conocimientos</a>
         </div>
     </div>
 </div>
-
-

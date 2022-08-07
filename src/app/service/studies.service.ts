@@ -15,6 +15,10 @@ export class StudiesService {
   public list(): Observable<Studies[]>{
     return this.httpClient.get<Studies[]>(this.URL + 'get');
   }
+
+  public detail(id:number): Observable<Studies>{
+    return this.httpClient.get<Studies>(this.URL + `get/${id}`)
+  } 
   
   public save(studies: Studies): Observable<any> {
     return this.httpClient.post<any>(this.URL + 'create', studies);
