@@ -27,7 +27,7 @@ export class EditStudiesComponent implements OnInit {
         this.study = data;
       },
       err => {
-        this.toastr.error("error", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.message, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         this.router.navigate(['/'])
       }
     )
@@ -43,7 +43,7 @@ export class EditStudiesComponent implements OnInit {
         this.router.navigate(['/'])
       },
       err => {
-        this.toastr.error("error al actualizar la experiencia", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.message, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         //this.router.navigate(['/'])
       });
   }

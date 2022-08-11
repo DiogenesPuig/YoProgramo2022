@@ -10,8 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 //login&register
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/auth/login.component';
+import { RegisterComponent } from './components/auth/register.component'
 
 //experience
 import { ExperienceComponent } from './components/experience/experience.component';
@@ -44,10 +44,10 @@ import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    ProfileComponent,
     LoginComponent,
     RegisterComponent,
+    HomePageComponent,
+    ProfileComponent,
     Page404Component,
     HeaderComponent,
     FooterComponent,

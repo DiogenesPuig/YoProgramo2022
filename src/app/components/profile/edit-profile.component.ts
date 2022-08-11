@@ -27,7 +27,7 @@ export class EditProfileComponent implements OnInit {
         this.profile = data;
       },
       err => {
-        this.toastr.error("error", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.message, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         this.router.navigate(['/'])
       }
     )
@@ -42,7 +42,7 @@ export class EditProfileComponent implements OnInit {
         this.router.navigate(['/'])
       },
       err => {
-        this.toastr.error("error al actualizar la habilidad", "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.message, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         this.router.navigate(['/'])
       });
   }

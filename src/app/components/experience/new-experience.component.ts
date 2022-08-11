@@ -33,7 +33,8 @@ export class NewExperienceComponent implements OnInit {
         this.router.navigate(['/'])
       },
       err => {
-        this.toastr.error(err.error.text, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.message, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
+        this.toastr.error(err.error.message, "Fail", { timeOut: 3000, positionClass: 'toast-top-center' });//err.error.mensaje
         this.router.navigate(['/'])
       }
     )

@@ -26,7 +26,7 @@ export class ExperienceComponent implements OnInit {
         this.experiences = data;
       },
       err => {
-        console.log(err)
+        this.toastr.error(err.error.message,"Fail", {timeOut: 3000, positionClass:'toast-top-center'});
       }
     );
   }
@@ -38,7 +38,7 @@ export class ExperienceComponent implements OnInit {
         this.loadExperiences();
       },
       err => {
-        this.toastr.error("error al crear la experiencia","Fail", {timeOut: 3000, positionClass:'toast-top-center'});
+        this.toastr.error(err.error.message,"Fail", {timeOut: 3000, positionClass:'toast-top-center'});
       }
     );
   }
