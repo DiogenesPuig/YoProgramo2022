@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Skill } from 'src/app/model/skill';
 import { SkillsService } from 'src/app/service/skills.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-skills',
@@ -11,13 +12,20 @@ import { SkillsService } from 'src/app/service/skills.service';
 export class SkillsComponent implements OnInit {
 
   skills: Skill[] = []
+  isLogged = false;
   
   constructor(
     private skillsService: SkillsService,
-    private toastr: ToastrService,) { }
+    private toastr: ToastrService,
+    private tokenService: TokenService,) { }
 
   ngOnInit(): void {
     this.loadSkils();
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   loadSkils():void{

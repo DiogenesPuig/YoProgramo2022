@@ -17,20 +17,21 @@ import { LoginComponent } from './components/auth/login.component';
 import { RegisterComponent } from './components/auth/register.component';
 
 // Services
+import { GuardService } from './guards/guard.service'
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent, },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'nskill', component: NewSkillComponent },
-  { path: 'eskill/:id', component: EditSkillComponent },
-  { path: 'nstudy', component: NewStudiesComponent },
-  { path: 'estudy/:id', component: EditStudiesComponent },
-  { path: 'nexperience', component: NewExperienceComponent },
-  { path: 'eexperience/:id', component: EditExperienceComponent },
-  { path: 'eprofile/:id', component: EditProfileComponent },
+  { path: 'nskill', component: NewSkillComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'eskill/:id', component: EditSkillComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'nstudy', component: NewStudiesComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'estudy/:id', component: EditStudiesComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'nexperience', component: NewExperienceComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'eexperience/:id', component: EditExperienceComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'eprofile/:id', component: EditProfileComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
   { path: '**', component: Page404Component }
 ];
 

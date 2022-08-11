@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Studies } from 'src/app/model/studies';
 import { StudiesService } from 'src/app/service/studies.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-studies',
@@ -11,14 +12,22 @@ import { StudiesService } from 'src/app/service/studies.service';
 export class StudiesComponent implements OnInit {
 
   studies: Studies[] = []
+  roles: string[];
+  isLogged = false;
 
   constructor(
     private studiesService: StudiesService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private tokenService: TokenService,
   ) { }
 
   ngOnInit(): void {
     this.loadStudies()
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
   }
 
   loadStudies(): void {

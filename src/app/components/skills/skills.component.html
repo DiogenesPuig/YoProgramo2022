@@ -6,8 +6,8 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{skill.nombre}}</h5>
-                    <a class="btn btn-primary" routerLink="/eskill/{{skill.id}}">Editar</a>
-                    <a class="btn btn-danger" (click)="deleteSkill(skill.id)">Eliminar</a>
+                    <a class="btn btn-primary" *ngIf="isLogged" routerLink="/eskill/{{skill.id}}">Editar</a>
+                    <a class="btn btn-danger" *ngIf="isLogged" (click)="deleteSkill(skill.id)">Eliminar</a>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
         </div>
     <div class="row">
         <div>
-        <a class="btn btn-success" routerLink="/nskill">Nueva Habilidad</a>
+        <a class="btn btn-success" routerLink="/nskill" *ngIf="isLogged">Nueva Habilidad</a>
         </div>
     </div>
 </div>

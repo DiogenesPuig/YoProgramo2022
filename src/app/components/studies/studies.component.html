@@ -12,8 +12,8 @@
                         <li>iniciado: {{study.inicio | date :'shortDate'}}</li>
                         <li>finalizado: {{study.fin | date :'shortDate'}}</li>
                     </ul>
-                    <a class="btn btn-primary" routerLink="/estudy/{{study.id}}">Editar</a>
-                    <a class="btn btn-danger" (click)="deleteStudy(study.id)">Eliminar</a>
+                    <a class="btn btn-primary" *ngIf="isLogged" routerLink="/estudy/{{study.id}}">Editar</a>
+                    <a class="btn btn-danger" *ngIf="isLogged" (click)="deleteStudy(study.id)">Eliminar</a>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div>
-            <a class="btn btn-success" routerLink="/nstudy">Nuevos Conocimientos</a>
+            <a class="btn btn-success" *ngIf="isLogged" routerLink="/nstudy">Nuevos Conocimientos</a>
         </div>
     </div>
 </div>

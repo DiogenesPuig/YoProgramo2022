@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
         this.toastr.error(this.errMsj, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        // console.log(err.error.message);
       }
     );
   }

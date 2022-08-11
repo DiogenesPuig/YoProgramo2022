@@ -38,7 +38,7 @@ export class EditProfileComponent implements OnInit {
     console.log(this.profile)
     this.profileService.update(id,this.profile).subscribe(
       data => {
-        this.toastr.success('habilidad actualizada', "OK", { timeOut: 3000, positionClass: 'toast-top-center' });
+        this.toastr.success('perfil actualizado', "OK", { timeOut: 3000, positionClass: 'toast-top-center' });
         this.router.navigate(['/'])
       },
       err => {
