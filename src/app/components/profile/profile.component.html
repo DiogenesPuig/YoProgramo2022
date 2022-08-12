@@ -12,15 +12,19 @@
                 <div class="row justify-content-start">
                     <div *ngFor="let data of profile" class="col-md-12 heading-section">
                         <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">Quien soy?</h2>
+                        <p class="d-flex">Soy {{data.nombre}}</p>
+                        <p>{{data.descripcion}}</p>
+                        <hr>
+                        <h3>Datos Personales</h3>
                         <ul class="about-info mt-4 px-md-0 px-2">
-                            <li class="d-flex">Soy {{data.nombre}}</li>
-                            <p>{{data.descripcion}}</p>
-                            <li class="d-flex">Fecha de Nacimiento:  {{data.nacimiento | date :
+                            <li class="d-flex">{{data.nombre}}</li>
+                            <li class="d-flex">Fecha de Nacimiento: {{data.nacimiento | date :
                                 'dd/MM/yyyy'}}</li>
                             <li class="d-flex">Email: {{data.mail }}</li>
-                            <li class="d-flex">Telefono:  {{data.telefono}}</li>
+                            <li class="d-flex">Telefono: {{data.telefono}}</li>
                         </ul>
-                        <a href="#" class="btn btn-primary" *ngIf="isLogged" routerLink="/eprofile/{{data.id}}">Editar</a>
+                        <a href="#" class="btn btn-primary" *ngIf="isLogged"
+                            routerLink="/eprofile/{{data.id}}">Editar</a>
                     </div>
                 </div>
             </div>
